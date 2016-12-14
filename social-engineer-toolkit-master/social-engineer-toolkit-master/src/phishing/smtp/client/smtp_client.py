@@ -10,6 +10,7 @@ import glob
 import random
 import pexpect
 import base64
+import time
 
 # python 2 to 3 fixes
 try:
@@ -47,6 +48,7 @@ for line in sendmail_file:
     if match:
         # if match and if line is flipped on continue on
         if line == ("SENDMAIL=ON"):
+            time.clock()
             print_info(
                 "Sendmail is a Linux based SMTP Server, this can be used to spoof email addresses.")
             print_info("Sendmail can take up to three minutes to start FYI.")
@@ -58,6 +60,8 @@ for line in sendmail_file:
                 if os.path.isfile("/etc/init.d/sendmail"):
                     subprocess.Popen(
                         "/etc/init.d/sendmail start", shell=True).wait()
+                    print("success")
+                    print(time.clock())
                 # if not there then prompt user
                 if not os.path.isfile("/etc/init.d/sendmail"):
                     pause = input(
