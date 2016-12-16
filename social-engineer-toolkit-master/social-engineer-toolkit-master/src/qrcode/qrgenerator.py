@@ -16,11 +16,11 @@ def gen_qrcode(url):
     im = qr.make_image()
     time.sleep(1)
 
-    qr_img_path = os.path.join(core.setdir, "reports/qrcode_attack.png")
+    qr_img_path = os.path.join(core.setdir, "reports/qrcode_attack.jpg")
 
     if os.path.isfile(qr_img_path):
         os.remove(qr_img_path)
     # save the image out
-    im.save(qr_img_path, format='png')
+    im.save(qr_img_path, format='jpg')
     # print that its been successful
     core.print_status("QRCode has been generated under {0}".format(qr_img_path))
