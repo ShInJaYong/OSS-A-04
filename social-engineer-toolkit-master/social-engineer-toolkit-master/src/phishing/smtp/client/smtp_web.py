@@ -9,6 +9,7 @@ import glob
 import random
 import time
 import base64
+import urllib.request
 # fix for python2 to 3 compatibility
 try:
     from cStringIO import StringIO
@@ -99,6 +100,9 @@ for line in sendmail_file:
             if sendmail == 0:
                 smtp = ("smtp.live.com")
                 port = ("587")
+
+        #save cookies to a file
+        FileCookirJar.save(filename=None,ignore_discard=False,ignore_expires=False)
 
 
 print ("""
