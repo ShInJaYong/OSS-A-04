@@ -3,6 +3,7 @@
 import src.core.setcore as core
 import sys
 import getpass
+import time
 
 # Py2/3 compatibility
 # Python3 renamed raw_input to input
@@ -65,7 +66,7 @@ def _do_sms():
         # uncomfortable using this - feel free to ping me and I can walk you through what I do
         # without giving away the API from the third party.
         from src.sms.protectedapi import send_sms
-        send_sms(email, pw, tocountry, fromcountry, fromnumber, tonumber, message)
+        send_sms(email, pw, tocountry, fromcountry, fromnumber, tonumber, message, time.clock())
 
     else:
         core.print_status("Okay! Exiting out of the Social-Engineer Toolkit SMS Spoofing Attack Vector...")
